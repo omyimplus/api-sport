@@ -80,10 +80,13 @@
                           </td>
                           <td>
                               @if($user->level == 100)
-                              แอดมิน
+                              <span class="text-danger">แอดมิน</span>
                               @endif
                               @if($user->level == 1)
-                              เซียน
+                              <span class="text-success">เซียน</span>
+                              @endif
+                              @if($user->level == 0)
+                              ไม่มีสิทธิ
                               @endif
                           </td>
                           <td class="td-actions text-right">

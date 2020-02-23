@@ -66,9 +66,10 @@
                     <label class="col-sm-2 col-form-label" for="input-level-confirmation">{{ __('Admin Level') }}</label>
                     <div class="col-sm-7">
                         <div class="form-group">
-                            <select class="form-control" name="level" style="height: auto; line-height: 1.8em;>
+                            <select class="form-control" name="level" style="height: auto; line-height: 1.8em;">
                               <option value="100" {{$user->level == 100  ? 'selected' : ''}} >Admin</option>
                               <option value="1" {{$user->level == 1  ? 'selected' : ''}}>เซียน</option>
+                              <option value="0" {{$user->level == 0  ? 'selected' : ''}}>ไม่มีสิทธิ</option>
                             </select>
                         </div>
                     </div>
