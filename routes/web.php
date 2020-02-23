@@ -2,7 +2,7 @@
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
 Route::resource('tstep', 'TstepController', ['except' => ['show']]);
-Route::group(['middleware' => ['admin']], function(){
+Route::group(['middleware' => ['admin']], function() {
     Route::resource('ztstep', 'ZeanTstepContrller', ['except' => ['show']]);
     Route::resource('blogs', 'BlogController', ['except' => ['show']]);
     Route::resource('youtube', 'YoutubeController', ['except' => ['show']]);

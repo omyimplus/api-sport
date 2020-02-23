@@ -70,9 +70,7 @@ class UserController extends Controller
         $user->facebook=$request->input('facebook');
 
         if($request->hasFile('avatar')) $fileNameToStore=uploadImage($request->file('avatar'),'avatar');
-        $fileNameToStore='';
-
-//        if ($fileNameToStore) $user->avatar=$fileNameToStore;
+        else $fileNameToStore='';
 
         if (isset($fileNameToStore)) {
             if (!empty($user->avatar)) {
