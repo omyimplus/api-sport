@@ -16,7 +16,6 @@ class CreateZeansTable extends Migration
         Schema::create('zeans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('uid');
-  
             $table->string('team1');
             $table->string('team2');
             $table->tinyInteger('over')->default(0);

@@ -14,7 +14,7 @@ class CreateAnalyzesTable extends Migration
     public function up()
     {
         Schema::create('analyzes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->smallInteger('cid')->default(0);
             $table->smallInteger('uid')->default(0);
             $table->string('title');

@@ -14,21 +14,21 @@ class CreateYoutubesTable extends Migration
     public function up()
     {
         Schema::create('youtubes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->smallInteger('cid')->default(0);
+            $table->bigIncrements('id');
+            // $table->smallInteger('cid')->default(0);
             $table->smallInteger('uid')->default(0);
             $table->string('title');
-            $table->text('description');
-            $table->longtext('content')->nullable();
+            // $table->text('description');
+            // $table->longtext('content')->nullable();
             $table->string('image')->nullable();
-            $table->string('tag')->nullable();
-            $table->string('slug');
+            // $table->string('tag')->nullable();
+            // $table->string('slug');
             $table->smallInteger('status')->default(1);
-            $table->smallInteger('hot')->default(0);
-            $table->smallInteger('switch1')->default(0);
-            $table->smallInteger('switch2')->default(0);             
-            $table->integer('visit');
-            $table->string('clip')->nullable();       
+            // $table->smallInteger('hot')->default(0);
+            // $table->smallInteger('switch1')->default(0);
+            // $table->smallInteger('switch2')->default(0);             
+            // $table->integer('visit');
+            $table->string('clip')->nullable();    
             $table->timestamps();
         });
     }

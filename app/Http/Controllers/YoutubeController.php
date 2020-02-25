@@ -25,24 +25,25 @@ class YoutubeController extends Controller
         }   
         $validatedData = $request->validate([
             'title' => 'required',
-            'description' => 'required',
-            'images' => 'image|nullable|max:2084',
+            // 'description' => 'required',
+            'image' => 'image|nullable|max:2084',
         ]);
         if($request->hasFile('image')) $fileNameToStore=uploadImage($request->file('image'),'imgs');
 
         $ys = new Youtube;
         $ys->uid = Auth::user()->id;
         $ys->title = $request->input('title');
-        $ys->description = $request->input('description');
+//        $ys->description = $request->input('description');
 
-        if ($ys->slug != Slug($ys->title)) $ys->slug = Slug($ys->title);
-        $ys->hot = ($request->input('hot') == true) ? '1':'0';
+//        if ($ys->slug != Slug($ys->title)) $ys->slug = Slug($ys->title);
+//        $ys->hot = ($request->input('hot') == true) ? '1':'0';
         $ys->created_at = date('Y-m-d H:i:s');
         $ys->updated_at = date('Y-m-d H:i:s');
         $ys->uid = auth()->user()->id;
-        $ys->visit = ($ys->visit == '')?0:$ys->visit;
+//        $ys->visit = ($ys->visit == '')?0:$ys->visit;
         $ys->clip = ($request->input('clip')!=null) ? getYoutube($request->input('clip')):null;
-        $ys->cid = ($request->input('cid')!=null)?$request->input('cid'):'0';
+        $ys->clip2 = ($request->input('clip2')!=null) ? getYoutube($request->input('clip2')):null;
+//        $ys->cid = ($request->input('cid')!=null)?$request->input('cid'):'0';
         if ($request->hasFile('image')!=false) $ys->image = $fileNameToStore;
         $ys->save();
         return redirect('/youtube')->with('success','Success! New Youtube has been Created.');
@@ -61,7 +62,7 @@ class YoutubeController extends Controller
     public function change($switch, $id) {
         $y = Youtube::find($id);
         if ($switch == 'status') $y->status = ($y->status != 1) ? '1':'0';
-        if ($switch == 'hot') $y->hot = ($y->hot != 1) ? '1':'0';
+//        if ($switch == 'hot') $y->hot = ($y->hot != 1) ? '1':'0';
         $y->save();
         return redirect('/youtube')->with('success', ' Success! Youtube post ID: '.$id.' has been Updated.');
     }    
@@ -70,24 +71,22 @@ class YoutubeController extends Controller
         if ($request->switch) return $this->change($request->switch,$id);
         $validatedData = $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            // 'description' => 'required',
             'image' => 'image|nullable|max:2084',
         ]);
         if($request->hasFile('image')) $fileNameToStore=uploadImage($request->file('image'),'imgs');
 
         $ys = Youtube::find($id);
         $ys->title = $request->input('title');
-        $ys->description = $request->input('description');
-        if ($ys->slug != Slug($ys->title)) $ys->slug = Slug($ys->title);
-        $ys->hot = ($request->input('hot') == true) ? '1':'0';
+//        $ys->description = $request->input('description');
+//        if ($ys->slug != Slug($ys->title)) $ys->slug = Slug($ys->title);
+//        $ys->hot = ($request->input('hot') == true) ? '1':'0';
         $ys->updated_at = date('Y-m-d H:i:s');
-        $ys->visit = ($ys->visit == '')?0:$ys->visit;
+//        $ys->visit = ($ys->visit == '')?0:$ys->visit;
         $ys->clip = ($request->input('clip')!=null) ? getYoutube($request->input('clip')):null;
+        $ys->clip2 = ($request->input('clip2')!=null) ? getYoutube($request->input('clip2')):null;
         if (isset($fileNameToStore)) {
             if (!empty($ys->image)) {
-                // $cover_path  = str_replace('/','\\',public_path('imgs/'.$ys->image));
-                // if (file_exists($cover_path)) unlink($cover_path);        
-
                 $cover_path = public_path().'/imgs/'.$ys->image;
                 if (is_file($cover_path)) { unlink($cover_path); }            
                        
