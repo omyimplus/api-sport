@@ -32,11 +32,15 @@ class AnalyzeController extends Controller
         $validatedData = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'images' => 'image|nullable|max:2084',
+            'image' => 'image|nullable|max:2084',
+            'image2' => 'image|nullable|max:2084',
         ]);
-        if($request->hasFile('image')) $fileNameToStore=uploadImage($request->file('image'),'imgs');
-        else $fileNameToStore='';
-        
+        if($request->hasFile('image')) { $fileNameToStore=uploadImage($request->file('image'),'imgs'); }
+        else { $fileNameToStore=''; }
+     
+        if($request->hasFile('image2')) { $fileNameToStore2=uploadImage($request->file('image2'),'imgs'); }
+        else { $fileNameToStore2=''; }
+
         $as = new Analyze;
         $as->uid = Auth::user()->id;
         $as->title = $request->input('title');
@@ -50,7 +54,8 @@ class AnalyzeController extends Controller
         $as->visit = ($as->visit == '')?0:$as->visit;
         $as->clip = ($request->input('clip')!=null) ? getYoutube($request->input('clip')):null;
         $as->cid = ($request->input('cid')!=null) ? $request->input('cid'):'0';
-        if ($fileNameToStore) $as->image = $fileNameToStore;
+        if ($fileNameToStore) { $as->image = $fileNameToStore; }
+        if ($fileNameToStore2) { $as->image2 = $fileNameToStore2; }
         $as->save();
         return redirect('/analyze')->with('success','Success! New Analyze has been Created.');
     }
@@ -87,14 +92,18 @@ class AnalyzeController extends Controller
 
     public function update(Request $request, $id)
     {
+        //dd($request->hasFile('image'));
         if ($request->switch) return $this->change($request->switch,$id);
         $validatedData = $request->validate([
             'title' => 'required',
             'description' => 'required',
             'image' => 'image|nullable|max:2084',
+            'image2' => 'image|nullable|max:2084',
         ]);
 
         if($request->hasFile('image')) $fileNameToStore=uploadImage($request->file('image'),'imgs');
+        if($request->hasFile('image2')) $fileNameToStore2=uploadImage($request->file('image2'),'imgs');
+
 
         $as = Analyze::find($id);
         $as->title = $request->input('title');
@@ -113,6 +122,13 @@ class AnalyzeController extends Controller
             }
             $as->image = $fileNameToStore;
         }
+        if (isset($fileNameToStore2)) {
+            if (!empty($as->image2)) {
+                $cover_path2 = public_path().'/imgs/'.$as->image2;
+                if (is_file($cover_path2)) { unlink($cover_path2); }            
+            }
+            $as->image2 = $fileNameToStore2;
+        }
         $as->save();
         return redirect('/analyze')->with('success','Success! Analyze id #'.$id.' has been updated.');
     }
@@ -120,8 +136,10 @@ class AnalyzeController extends Controller
     public function destroy($id)
     {
         $an = Analyze::find($id);
-        $cover_path  = str_replace('/','\\',public_path('imgs/'.$an->image));
+        $cover_path = str_replace('/','\\',public_path('imgs/'.$an->image));
         if (file_exists($cover_path)) unlink($cover_path);
+        $cover_path2 = str_replace('/','\\',public_path('imgs/'.$an->image2));
+        if (file_exists($cover_path2)) unlink($cover_path2);
         $an->delete();
         return redirect()->back()->with('success','Analyze post ID:'.$id.' has been Removed.');  
     }

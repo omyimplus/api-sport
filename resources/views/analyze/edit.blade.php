@@ -48,7 +48,7 @@
                                             </div>
                                         </div>                
                                         <div class="row">
-                                            <label class="col-sm-1 col-form-label mt-2" for="title">รูปภาพ</label>
+                                            <label class="col-sm-1 col-form-label mt-2" for="title">รูปภาพ (tdedclub)</label>
                                             <div class="col-sm-7">    
                                                 @if($analyze->image) 
                                                 <img src="{{url('imgs/'.$analyze->image)}}" alt="{{$analyze->title}}" width="250px">
@@ -59,6 +59,18 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <label class="col-sm-1 col-form-label mt-2" for="title">รูปภาพ (zean7m)</label>
+                                            <div class="col-sm-7">    
+                                                @if($analyze->image2) 
+                                                <img src="{{url('imgs/'.$analyze->image2)}}" alt="{{$analyze->title}}" width="250px">
+                                                @endif
+                                                <div class="custom-file mt-3">
+                                                    <input type="file" name="image2" style="cursor: pointer;" class="custom-file-input" id="customFile">
+                                                    <label class="custom-file-label" for="customFile"><u>เปลี่ยนภาพอัพโหลด</u></label>
+                                                </div>
+                                            </div>
+                                        </div>                                        
                                         <input type="hidden" name="_method" value="PUT">
                                         <div class="row">
                                             <div class="card-footer ml-auto mr-auto">
