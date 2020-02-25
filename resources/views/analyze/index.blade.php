@@ -131,7 +131,7 @@
                                             </div>
                                         </div>                
                                         <div class="row">
-                                            <label class="col-sm-1 col-form-label mt-2" for="title">รูปภาพ ( tdedclub )</label>
+                                            <label class="col-sm-1 col-form-label mt-2" for="title">รูปภาพ.tdedclub</label>
                                             <div class="col-sm-7">    
                                                 <div class="custom-file mt-3">
                                                     <input type="file" name="image" style="cursor: pointer;" class="custom-file-input" id="customFile">
@@ -140,7 +140,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <label class="col-sm-1 col-form-label mt-2" for="title">รูปภาพ ( zean7m )</label>
+                                            <label class="col-sm-1 col-form-label mt-2" for="title">รูปภาพ.zean7m</label>
                                             <div class="col-sm-7">    
                                                 <div class="custom-file mt-3">
                                                     <input type="file" name="image2" style="cursor: pointer;" class="custom-file-input" id="customFile">

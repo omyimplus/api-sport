@@ -48,7 +48,7 @@
                                             </div>
                                         </div>                
                                         <div class="row">
-                                            <label class="col-sm-1 col-form-label mt-2" for="title">รูปภาพ (tdedclub)</label>
+                                            <label class="col-sm-1 col-form-label mt-2" for="title">รูปภาพ.tdedclub</label>
                                             <div class="col-sm-7">    
                                                 @if($analyze->image) 
                                                 <img src="{{url('imgs/'.$analyze->image)}}" alt="{{$analyze->title}}" width="250px">
@@ -60,7 +60,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <label class="col-sm-1 col-form-label mt-2" for="title">รูปภาพ (zean7m)</label>
+                                            <label class="col-sm-1 col-form-label mt-2" for="title">รูปภาพ.zean7m</label>
                                             <div class="col-sm-7">    
                                                 @if($analyze->image2) 
                                                 <img src="{{url('imgs/'.$analyze->image2)}}" alt="{{$analyze->title}}" width="250px">
