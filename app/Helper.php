@@ -1,4 +1,40 @@
 <?php
+function getSix($num) {
+   $num = preg_replace('/[^0-9]/','',$num);
+   $x='';
+   for($i=0;$num!='';$i++) {
+      $c=substr($num,0,6);
+      $x = ($x!=''?$x.' '.$c:$c);
+      $num=str_replace($c,'',$num);
+   }
+   return $x;
+}
+
+function getNum($num,$n) {
+
+   // $n='004902<b>123456</b>1044261694193,3003d7d3d91023';
+   // $n = preg_replace('/[^0-9]/', '', $n);
+   // $x='';
+   // for($i=0;$n!='';$i++) {
+   //     $c=substr($n,0, 6);
+   //     $x = $x.' '.$c;
+   //     $n=str_replace($c,'',$n);
+   // }
+   // return $x.'<br/>';
+   //004902 123456 104426 169419 330037 391023
+}
+ function checkLotto($n='',$cn=6) {
+   $n='111111 222222 333333 444444 555555';
+   $n = preg_replace('/[^0-9]/', '', $n);
+   $x='';
+   $j = 'sory!';
+   for($i=0;$n!='';$i++) {
+       $c=substr($n,0, $cn);
+       if ($c == '111111') { $j = 'jackpot! '.$c; }
+       $n=str_replace($c,'',$n);
+   }
+   return $j;
+ }
 
 function visit($id, $act='',$db='news') { 
    if ($db == 'news') {

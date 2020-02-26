@@ -34,6 +34,12 @@
                 <span class="sidebar-normal">{{ __('ทีเด็ดสเต็ป') }} </span>
             </a>
         </li>
+        <li class="nav-item{{ $activePage == 'lotto' ? ' active' : '' }}">
+            <a class="nav-link" href="{{ url('/lotto') }}">
+                <span class="sidebar-mini"> <i class="far fa-money-bill-alt text-danger"></i> </span>
+                <span class="sidebar-normal">{{ __('หวยรัฐบาล') }} </span>
+            </a>
+        </li>
         {{-- <li class="nav-item{{ $activePage == 'setup' ? ' active' : '' }}">
             <a class="nav-link" href="{{ url('/setup') }}">
                 <span class="sidebar-mini"> <i class="fas fa-cogs text-danger"></i> </span>

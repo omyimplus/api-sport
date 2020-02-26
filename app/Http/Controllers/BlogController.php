@@ -10,7 +10,7 @@ class BlogController extends Controller
     public function index(Blog $model)
     {
         if(Auth::user()->level < 100) abort(403, 'Unauthorized action.');
-        $model->orderBy('id','desc')->paginate(20);
+//        $model->orderBy('id','desc')->paginate(20);
         return view('blogs.index', ['blogs' => $model->orderBy('id','desc')->paginate(20)]);
     }
 
