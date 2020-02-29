@@ -96,7 +96,8 @@
                             <div class="row" id="addBlog">
                                 <div class="col-md-12">
                                     <button id="cancelButton" class="btn btn-warning"><i class="far fa-window-close"></i> &nbsp; ยกเลิก &nbsp; </button>
-                                    <form method="post" action="analyze/" class="form-horizontal" enctype="multipart/form-data">
+                                    <form method="POST" action="/analyze" class="form-horizontal" enctype="multipart/form-data">
+                                    @csrf
                                         <div class="row">
                                             <label class="col-sm-1 col-form-label mt-2" for="title">ชื่อเรื่อง</label>
                                             <div class="col-sm-7">
@@ -153,7 +154,7 @@
                                                 <button type="submit" class="btn btn-primary">บันทึกข้อมูล</button>
                                             </div>
                                         </div>
-                                        @csrf
+                                        
                                     </form>
                                 </div> 
                             </div>

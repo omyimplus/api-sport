@@ -32,8 +32,7 @@
         
         <!--   Core JS Files   -->
 
-        <script src="unisharp/laravel-ckeditor/ckeditor.js"></script>
-        <script src="unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+        <script src="{{url('unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
         <script type="text/javascript">
             CKEDITOR.replace('ckeditor', {
                 filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",

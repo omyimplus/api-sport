@@ -26,6 +26,7 @@ class AnalyzeController extends Controller
 
     public function store(Request $request)
     {
+        
         if(Analyze::where('title', $request->input('title'))->first()) {
             return redirect()->back()->withInput()->with('error', 'Error! Title has data already exists.');
         }   
@@ -35,28 +36,40 @@ class AnalyzeController extends Controller
             'image' => 'image|nullable|max:2084',
             'image2' => 'image|nullable|max:2084',
         ]);
-        if($request->hasFile('image')) { $fileNameToStore=uploadImage($request->file('image'),'imgs'); }
-        else { $fileNameToStore=''; }
+        if($request->hasFile('image')) {
+            $fileNameToStore=uploadImage($request->file('image'),'imgs');
+        } else { $fileNameToStore=''; }
      
-        if($request->hasFile('image2')) { $fileNameToStore2=uploadImage($request->file('image2'),'imgs'); }
-        else { $fileNameToStore2=''; }
+        if($request->hasFile('image2')) {
+            $fileNameToStore2=uploadImage($request->file('image2'),'imgs');
+        } else { $fileNameToStore2=''; }
 
         $as = new Analyze;
         $as->uid = Auth::user()->id;
         $as->title = $request->input('title');
         $as->description = $request->input('description');
 
-        if ($request->input('content')) $as->content = $request->input('content');
-        if ($as->slug != Slug($as->title)) $as->slug = Slug($as->title);
+        if ($request->input('content')) {
+            $as->content = $request->input('content');
+        };
+        if ($as->slug != Slug($as->title)){
+            $as->slug = Slug($as->title);
+        }
         $as->hot = ($request->input('hot') == true) ? '1':'0';
-        $as->created_at = date('Y-m-d H:i:s');
-        $as->updated_at = date('Y-m-d H:i:s');
-        $as->visit = ($as->visit == '')?0:$as->visit;
+        $as->visit = ($as->visit == '') ? 0 : $as->visit;
         $as->clip = ($request->input('clip')!=null) ? getYoutube($request->input('clip')):null;
         $as->cid = ($request->input('cid')!=null) ? $request->input('cid'):'0';
-        if ($fileNameToStore) { $as->image = $fileNameToStore; }
-        if ($fileNameToStore2) { $as->image2 = $fileNameToStore2; }
+        if ($fileNameToStore) {
+            $as->image = $fileNameToStore;
+        }
+        if ($fileNameToStore2) {
+            $as->image2 = $fileNameToStore2;
+        }
+        
         $as->save();
+
+
+
         return redirect('/analyze')->with('success','Success! New Analyze has been Created.');
     }
 

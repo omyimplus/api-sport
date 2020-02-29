@@ -88,7 +88,7 @@
             </div>
         </div>    
     </div>
-    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
     <script type="text/javascript">
         CKEDITOR.replace('ckeditor', {
             filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
@@ -102,5 +102,5 @@
             { "name": "insert", "groups": ["insert"] } ],
             removeButtons: 'Subscript,Superscript,Anchor,Specialchar'
         });
-    </script>  
+    </script>   --}}
 @endsection
