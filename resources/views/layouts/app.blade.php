@@ -31,6 +31,23 @@
         @endguest
         
         <!--   Core JS Files   -->
+
+        <script src="unisharp/laravel-ckeditor/ckeditor.js"></script>
+        <script src="unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+        <script type="text/javascript">
+            CKEDITOR.replace('ckeditor', {
+                filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+                filebrowserUploadMethod: 'form',
+                height: 400,
+                toolbarGroups: [
+                { "name": "styles", "groups": ["styles"] },
+                { "name": "basicstyles", "groups": ["basicstyles"] },
+                { "name": "links", "groups": ["links"] },
+                { "name": "paragraph", "groups": ["list", "blocks"] },
+                { "name": "insert", "groups": ["insert"] } ],
+                removeButtons: 'Subscript,Superscript,Anchor,Specialchar'
+            });
+        </script>
         
         <script src="{{ asset('js/bs-custom-file-input.js') }}"></script>
         <script src="{{ asset('material') }}/js/core/jquery.min.js"></script>
