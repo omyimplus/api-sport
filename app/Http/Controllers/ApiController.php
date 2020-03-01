@@ -15,7 +15,8 @@ class ApiController extends Controller
 		$at =(int) $lotto_at[1];
 		$lotto_at=$lotto_at[0].' '.$month[$at].' '.ceil($lotto_at[2]+543);
 		return response()->json([
-			'lotto'=>$lotto
+            'lotto'=>$lotto,
+            'lotto_at'=>$lotto_at
 		]);
     }
 }
