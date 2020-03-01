@@ -15,7 +15,7 @@ class TstepController extends Controller
         if(Auth::user()->level == 1 || Auth::user()->level >= 100) {
         // if ($t->created_at < date('Y-m-d 06:00:00')) echo $t->created_at.' / '.date('Y-m-d 06:00:00');
             $us = new User;
-            $us = $us->where('level','1')->get();
+            $us = $us->where('level','1')->take(8)->get();
             return view('tstep.index', ['users' => $us]);
         }
         else abort(403, 'Unauthorized action.');
