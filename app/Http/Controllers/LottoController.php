@@ -50,7 +50,8 @@ class LottoController extends Controller
         $lotto->lotto_front3 = $request->input('lotto_front3');
         $lotto->lotto_last3 = $request->input('lotto_last3');
         $lotto->lotto_last2 = $request->input('lotto_last2');
-
+        $lotto->lotto_lao_at = $request->input('lotto_lao_at');
+        $lotto->lotto_lao = $request->input('lotto_lao');
         $lotto->save();
         return redirect('/lotto')->with('success','Success! lotto saved.');
     }
@@ -103,7 +104,8 @@ class LottoController extends Controller
         $lotto->lotto_front3 = $request->input('lotto_front3');
         $lotto->lotto_last3 = $request->input('lotto_last3');
         $lotto->lotto_last2 = $request->input('lotto_last2');
-
+        $lotto->lotto_lao_at = $request->input('lotto_lao_at');
+        $lotto->lotto_lao = $request->input('lotto_lao');
         $lotto->save();
         return redirect('/lotto')->with('success','Success! lotto updated.');
     }

@@ -187,6 +187,21 @@
                                                     <input class="form-control" type="text" name="lotto_last2"  value="{{$lotto->lotto_last3}}" />
                                                 </div>
                                             </div>
+                                            <div class="col-2 mt-3 py-3 rounded bg-info">
+                                                <h5 class="pt-3">หวยลาว</h5>
+                                                <div class="col-12">
+                                                    <div class="form-group text-danger p-0">
+                                                        งวดวันที่
+                                                        <input class="form-control" type="text" name="lotto_lao_at" placeholder="20-12-2020" value="{{$lotto->lotto_lao_at}}" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group text-danger">
+                                                        เลขที่ออก
+                                                        <input class="form-control" type="text" name="lotto_lao" placeholder="1234" value="{{$lotto->lotto_lao}}" />
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <input type="hidden" name="_method" value="PUT">
