@@ -102,16 +102,13 @@ class TstepController extends Controller
      */
     public function update(Request $request, $id)
     {
-//dd($request);
         $validatedData = $request->validate([
             'team1' => 'required',
             'team2' => 'required',
             'team3' => 'required',
         ]);
-        if($request->hasFile('image')) $fileNameToStore=uploadImage($request->file('image'),'imgs');
 
         $ts = Tstep::find($id);
-        //dd($ts);
         $ts->uid = $ts->uid;
         $ts->team1 = $request->input('team1');
         $ts->team2 = $request->input('team2');

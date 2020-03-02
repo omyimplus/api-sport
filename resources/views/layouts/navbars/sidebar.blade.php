@@ -28,10 +28,16 @@
                 <span class="sidebar-normal">{{ __('คลิปยูทูป') }} </span>
             </a>
         </li>
+        <li class="nav-item{{ $activePage == 'tstep2' ? ' active' : '' }}">
+            <a class="nav-link" href="{{ url('/tstep2') }}">
+                <span class="sidebar-mini"> <i class="fab fa-angellist text-danger"></i> </span>
+                <span class="sidebar-normal">{{ __('ทีเด็ดสเต็ป-2') }} </span>
+            </a>
+        </li>
         <li class="nav-item{{ $activePage == 'tstep' ? ' active' : '' }}">
             <a class="nav-link" href="{{ url('/tstep') }}">
                 <span class="sidebar-mini"> <i class="fab fa-angellist text-danger"></i> </span>
-                <span class="sidebar-normal">{{ __('ทีเด็ดสเต็ป') }} </span>
+                <span class="sidebar-normal">{{ __('ทีเด็ดสเต็ป-3') }} </span>
             </a>
         </li>
         <li class="nav-item{{ $activePage == 'lotto' ? ' active' : '' }}">

@@ -12,18 +12,45 @@
                             <p class="card-category"> {{ __('ระบบจัดการบทวิเคราะห์บอล') }}</p>
                         </div>
                         <div class="card-body">
-                            @if (session('status'))
+                            @if(count($errors)>0)
+                            @foreach($errors->all() as $error)
+    
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="alert alert-danger">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <i class="material-icons">close</i>
+                                        </button>
+                                        <strong>Oh snap!</strong> &nbsp; &nbsp;<span>{{$error}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        @endif
+                        @if(session('success'))
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="alert alert-success">
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <i class="material-icons">close</i>
                                         </button>
-                                        <span>{{ session('status') }}</span>
+                                        <strong>Well done! </strong> &nbsp; &nbsp; <span>{{session('success')}}</span>
                                     </div>
                                 </div>
                             </div>
-                            @endif
+                        @endif
+                        @if(session('error'))
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="alert alert-danger">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <i class="material-icons">close</i>
+                                        </button>
+                                        <strong>Oh snap!!</strong> &nbsp; &nbsp;<span>{{session('error')}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                             <script>
                             window.onload = function() {
                                 if (window.jQuery) {  

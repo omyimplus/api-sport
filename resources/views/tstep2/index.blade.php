@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'tstep', 'titlePage' => __('TededStep Management')])
+@extends('layouts.app', ['activePage' => 'tstep2', 'titlePage' => __('TededStep2 Management')])
 
 @section('content')
 <div class="content">
@@ -13,7 +13,6 @@
 					<div class="card-body">
 					@if(count($errors)>0)
 						@foreach($errors->all() as $error)
-
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="alert alert-danger">
@@ -37,7 +36,6 @@
 								</div>
 							</div>
 						</div>
-
 					@endif
 					@if(session('error'))
 						<div class="row">
@@ -85,76 +83,26 @@
 											<th>ทำนายผล</th>
 											<th>ข้อมูลล่าสุด</th>
 										</thead>
-										<tbody>
-											@foreach($users as $user)
-											<?php $step = DB::table('tsteps')->where('uid',$user->id)->get(); ?>
+										<tbody>		
+											@foreach($tstep2 as $tstep)
+											<?php $user = DB::table('users')->where('id',$tstep->uid)->first(); ?>
 											<tr>
-												<td>{{$user->id}}</td>
-												<td>
-                                                    @if($step->count())
-													{{$user->name}}
-													@else
-													{{$user->name}}
-													@endif
+												<td>{{$tstep->id}}</td>
+												<td>{{$user->name}}</td>
+													<td>
+														<a href="{{url('tstep2/'.$tstep->id.'/edit')}}" rel="tooltip" >
+															{{$tstep->team1}} | {{$tstep->team2}}
+														</a>
+													</td>						
 												</td>
-												@if($step->count())
-													@foreach($step as $ts)
-														@if($loop->first)
-														<td>
-															<a href="{{url('tstep/'.$ts->id.'/edit')}}" rel="tooltip" >
-																{{$ts->team1}} | {{$ts->team2}} | {{$ts->team3}}
-															</a>
-														</td>
-														<td>{{$ts->updated_at}}</td>
-														@endif
-													@endforeach
-												@else
-													<td>ยังไม่มีการเพิ่มข้อมูล.</td>
-													<td>-</td>
-												@endif									
-												</td>
+												<td>{{$tstep->updated_at}}</td>
 											</tr>
 											@endforeach
 										</tbody>
 									</table>
 								</div>
 							</div>
-						</div>
-
-						<div class="row" id="addTstep" class="d-none">
-							<div class="col-md-12">
-								<button id="cancelButton" class="btn btn-warning"><i class="far fa-window-close"></i> &nbsp; ยกเลิก &nbsp; </button>
-								<form method="post" action="/tstep" autocomplete="off" class="form-horizontal">
-									<div class="row">
-										<div class="col">
-											<div class="form-group">
-												<label for="exampleFormControlSelect1">เลือกเซียน</label>
-												<select class="form-control" id="uid" name="uid">
-												@foreach($users as $user)
-												<option value="{{$user->id}}">{{$user->name}}</option>
-												@endforeach
-												</select>
-											</div>
-											<div class="form-group">
-												<input class="form-control" input type="text" name="team1" placeholder="ผลทำนาย ทีม 1" />
-											</div>
-											<div class="form-group">
-												<input class="form-control" input type="text" name="team2" placeholder="ผลทำนาย ทีม 2" />
-											</div>
-											<div class="form-group">
-												<input class="form-control" input type="text" name="team3" placeholder="ผลทำนาย ทีม 3" />
-											</div>
-
-											<div class="row ">
-												<button type="submit" class="btn btn-primary ml-auto mr-auto">{{ __('บันทึกข้อมูล') }}</button>
-											</div>
-										</div>
-									</div>   
-									@csrf         
-								</form>
-							</div>
-						</div>
-						
+						</div>						
 					</div>
 				</div>
 			</div>
