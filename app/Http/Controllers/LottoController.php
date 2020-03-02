@@ -91,7 +91,6 @@ class LottoController extends Controller
         $validatedData = $request->validate([
             'lotto_at' => 'required',
         ]);
-        if($request->hasFile('image')) $fileNameToStore=uploadImage($request->file('image'),'imgs');
 
         $lotto = Lotto::find($id);
         $lotto->lotto_at = str_replace('/','-',$request->input('lotto_at'));

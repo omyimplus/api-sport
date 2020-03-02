@@ -43,7 +43,13 @@
         <li class="nav-item{{ $activePage == 'lotto' ? ' active' : '' }}">
             <a class="nav-link" href="{{ url('/lotto') }}">
                 <span class="sidebar-mini"> <i class="far fa-money-bill-alt text-danger"></i> </span>
-                <span class="sidebar-normal">{{ __('หวยรัฐบาล/หวยลาว') }} </span>
+                <span class="sidebar-normal">{{ __('หวยรัฐบาล') }} </span>
+            </a>
+        </li>
+        <li class="nav-item{{ $activePage == 'lotto_lao' ? ' active' : '' }}">
+            <a class="nav-link" href="{{ url('/lotto_lao') }}">
+                <span class="sidebar-mini"> <i class="far fa-money-bill-alt text-danger"></i> </span>
+                <span class="sidebar-normal">{{ __('หวยลาว') }} </span>
             </a>
         </li>
         {{-- <li class="nav-item{{ $activePage == 'setup' ? ' active' : '' }}">

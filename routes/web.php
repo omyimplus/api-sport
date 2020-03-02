@@ -13,6 +13,7 @@ Route::group(['middleware' => ['admin']], function() {
     Route::resource('user', 'UserController', ['except' => ['show']]);
     Route::resource('setup', 'SetupController', ['except' => ['show']]);
     Route::resource('lotto', 'LottoController', ['except' => ['show']]);
+    Route::resource('lotto_lao', 'LottolaoController', ['except' => ['show']]);
 
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);

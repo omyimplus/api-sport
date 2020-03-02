@@ -185,7 +185,7 @@
                                                     <input class="form-control" type="text" name="lotto_last2" />
                                                 </div>
                                             </div>
-                                            <div class="col-2 mt-3 py-3 rounded bg-info">
+                                            {{-- <div class="col-2 mt-3 py-3 rounded bg-info">
                                                 <h5 class="pt-3">หวยลาว</h5>
                                                 <div class="col-12">
                                                     <div class="form-group text-danger p-0">
@@ -199,7 +199,7 @@
                                                         <input class="form-control" type="text" name="lotto_lao" placeholder="1234" />
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
 
                                         </div>
                                     </div>
