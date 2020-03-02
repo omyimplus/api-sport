@@ -31,19 +31,19 @@
         <li class="nav-item{{ $activePage == 'tstep2' ? ' active' : '' }}">
             <a class="nav-link" href="{{ url('/tstep2') }}">
                 <span class="sidebar-mini"> <i class="fab fa-angellist text-danger"></i> </span>
-                <span class="sidebar-normal">{{ __('ทีเด็ดสเต็ป-2') }} </span>
+                <span class="sidebar-normal">{{ __('ทีเด็ดบอลเดี่ยว') }} </span>
             </a>
         </li>
         <li class="nav-item{{ $activePage == 'tstep' ? ' active' : '' }}">
             <a class="nav-link" href="{{ url('/tstep') }}">
                 <span class="sidebar-mini"> <i class="fab fa-angellist text-danger"></i> </span>
-                <span class="sidebar-normal">{{ __('ทีเด็ดสเต็ป-3') }} </span>
+                <span class="sidebar-normal">{{ __('ทีเด็ดบอลสเต็ป') }} </span>
             </a>
         </li>
         <li class="nav-item{{ $activePage == 'lotto' ? ' active' : '' }}">
             <a class="nav-link" href="{{ url('/lotto') }}">
                 <span class="sidebar-mini"> <i class="far fa-money-bill-alt text-danger"></i> </span>
-                <span class="sidebar-normal">{{ __('หวยรัฐบาล') }} </span>
+                <span class="sidebar-normal">{{ __('หวยรัฐบาล/หวยลาว') }} </span>
             </a>
         </li>
         {{-- <li class="nav-item{{ $activePage == 'setup' ? ' active' : '' }}">

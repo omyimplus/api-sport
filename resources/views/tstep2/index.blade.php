@@ -7,8 +7,8 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header card-header-primary">
-						<h4 class="card-title ">{{ __('ฺBallstep Guidelines') }}</h4>
-						<p class="card-category"> {{ __('ทีเด็ดสเต็ป') }}</p>
+						<h4 class="card-title ">{{ __('ฺBall Guidelines') }}</h4>
+						<p class="card-category"> {{ __('ทีเด็ดบอลเดี่ยว') }}</p>
 					</div>
 					<div class="card-body">
 					@if(count($errors)>0)
