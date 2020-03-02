@@ -83,13 +83,13 @@
                                                     <td>{{$lotto->id}}</td>
                                                     <td><a href="{{url('/lotto/'.$lotto->id.'/edit')}}">{{$lotto->lotto_at}}</a></td>
                                                     <td>
-                                                        <form action="/lotto/{{$lotto->id}}" method="POST">
+                                                        {{-- <form action="/lotto/{{$lotto->id}}" method="POST">
                                                             <input type="hidden" name="_method" value="DELETE">
                                                             <button type="submit" rel="tooltip" title="Remove" class="btn btn-outline-danger btn-link btn-sm p-0" onclick="return confirm('ลบโพส์ต ID #{{$lotto->id}} แน่ใจ?');">
                                                                 <i class="material-icons">close</i>
                                                             </button>
                                                             @csrf
-                                                        </form>
+                                                        </form> --}}
                                                     </td>
                                                 </tr>                                                
                                                 @endforeach
