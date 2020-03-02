@@ -55,25 +55,29 @@
 							bsCustomFileInput.init();
 							$("#addTstep").hide();
 							$('#addButton').click(function(){
-								$("#addTstep").show();
 								$("#listBlog").hide();
+								$("#addTstep").show();
+
 							});
 							$('#cancelButton').click(function(){
 								$("#addTstep").hide();
 								$("#listBlog").show();
 							});
 							$('.addButton').click(function(){
-								$("#addTstep").show();
 								$("#listBlog").hide();
+								$("#addTstep").show();
+								
 							});							      
 						} 
 					}
 					</script>
 						<div class="row" id="listBlog">
 							<div class="col-md-12">
-								<div class="d-none">
+								@if($buttonAdd == 'on')
+								<div class="">
 									<a href="#" class="btn btn-success" id="addButton">เพิ่มทำนายผล</a>
 								</div>
+								@endif
 
 								<div class="table-responsive">
 									<table class="table table-hover">
@@ -102,7 +106,79 @@
 									</table>
 								</div>
 							</div>
-						</div>						
+						</div>
+						
+						<div class="row" id="addTstep">
+							<div class="col-md-12">
+                                <a href="/tstep2" class="btn btn-warning"><i class="far fa-window-close"></i> &nbsp; ยกเลิก &nbsp; </a>
+								<form method="post" action="{{url('tstep2/')}}" autocomplete="off" class="form-horizontal">
+									<div class="row">
+										<div class="col">
+										
+											<div class="form-group">
+												<div class="form-check form-check-radio form-check-inline">
+													<label class="form-check-label">
+														<input class="form-check-input" type="radio" name="team1w" id="team1w" value="0" checked > เสมอ
+														<span class="circle">
+															<span class="check"></span>
+														</span>
+													</label>
+												</div>
+												<div class="form-check form-check-radio form-check-inline">
+													<label class="form-check-label">
+														<input class="form-check-input" type="radio" name="team1w" id="team1w" value="1" > ต่อ
+														<span class="circle">
+															<span class="check"></span>
+														</span>
+													</label>
+												</div>
+												<div class="form-check form-check-radio form-check-inline">
+													<label class="form-check-label">
+														<input class="form-check-input" type="radio" name="team1w" id="team1w" value="2" > รอง
+														<span class="circle">
+															<span class="check"></span>
+														</span>
+													</label>
+												</div>
+												<input class="form-control" type="text" name="team1" value="" />									
+											</div>
+											<div class="form-group">
+												<div class="form-check form-check-radio form-check-inline">
+													<label class="form-check-label">
+													<input class="form-check-input" type="radio" name="team2w" id="team2w" value="0" checked > เสมอ
+													<span class="circle">
+														<span class="check"></span>
+													</span>
+													</label>
+												</div>
+												<div class="form-check form-check-radio form-check-inline">
+													<label class="form-check-label">
+													<input class="form-check-input" type="radio" name="team2w" id="team2w" value="1" > ต่อ
+													<span class="circle">
+														<span class="check"></span>
+													</span>
+													</label>
+												</div>
+												<div class="form-check form-check-radio form-check-inline">
+													<label class="form-check-label">
+													<input class="form-check-input" type="radio" name="team2w" id="team2w" value="2"> รอง
+													<span class="circle">
+														<span class="check"></span>
+													</span>
+													</label>
+												</div>
+												<input class="form-control" type="text" name="team2" value="" />
+											</div>
+											<div class="row ">
+												<button type="submit" class="btn btn-primary ml-auto mr-auto">{{ __('บันทึกข้อมูล') }}</button>
+											</div>
+										</div>
+                                    </div>   
+									@csrf         
+								</form>
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>
