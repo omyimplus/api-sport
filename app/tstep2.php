@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class tstep2 extends Model
+class Tstep2 extends Model
 {
-    
+    //
 }
