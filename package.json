@@ -25,7 +25,7 @@
     },
     "dependencies": {
         "ckeditor": "^4.12.1",
-        "ckeditor4": "^4.13.1",
+        "ckeditor4": "^4.14.0",
         "medium-editor": "^5.23.3"
     }
 }
